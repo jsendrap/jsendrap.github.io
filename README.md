@@ -18,7 +18,11 @@ Plain static HTML and CSS, with no build step. GitHub Pages serves it as is.
 | `service.html` | Service |
 | `outreach.html` | Outreach |
 
-Shared styles are in `assets/style.css`. `assets/site.js` draws the rotating curve figures on the About page and runs the "Copy email" button.
+Shared styles are in `style.css`. `site.js` draws the rotating curve figures on the About page and runs the "Copy email" button.
+
+## Changing the photo
+
+Upload a new picture named `photo.jpg` to replace the current one.
 
 ## Adding a publication
 
