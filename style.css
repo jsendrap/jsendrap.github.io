@@ -1,0 +1,172 @@
+/* Layout: CUNEF faculty profile in tabs. Brand bar with official logo, sticky tab bar, then per-tab content:
+   sections with a side heading column. Single light theme by design, using only official CUNEF colours. */
+:root{
+  color-scheme:light;
+  --orange:#ff5700;       /* CUNEF primary orange */
+  --blue:#1a1f6c;         /* CUNEF primary blue */
+  --beige:#d6d1c4;        /* CUNEF primary beige */
+  --beige-light:#f0ece8;  /* support */
+  --blue-light:#d2e0f3;   /* support */
+  --white:#ffffff;
+  --black:#000000;
+  --muted:rgba(0,0,0,.66);
+  --display:"Taviraj", Georgia, "Times New Roman", serif;   /* secondary corporate typeface */
+  --body:"Aeonik", Arial, Helvetica, sans-serif;            /* primary typeface, Arial fallback */
+}
+*{box-sizing:border-box}
+body{
+  background:var(--white); color:var(--black);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+}
+a{color:var(--blue); text-underline-offset:3px; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible, button:focus-visible{outline:2px solid var(--orange); outline-offset:3px; border-radius:2px}
+.gutter{
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.inner{max-width:1000px; margin:0 auto}
+
+/* Brand bar */
+.brand{border-bottom:1px solid var(--beige)}
+.brand .inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:8px; flex-wrap:wrap}
+.brand img{height:78px; width:auto; display:block}
+.brand .dept{font-size:14px; color:var(--blue); font-weight:500; letter-spacing:.02em}
+
+/* Header */
+.hero{background:var(--beige-light)}
+.hero .inner{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:48px; align-items:center; padding-block:56px}
+.label{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); font-weight:500; margin:0 0 12px}
+h1{font-family:var(--display); font-weight:400; font-size:clamp(40px, 6.4vw, 64px); line-height:1.05; margin:0; color:var(--blue); text-wrap:balance}
+.role{margin:16px 0 0; font-size:19px; max-width:46ch}
+.rule{width:56px; height:3px; background:var(--orange); margin:24px 0 18px; border:0}
+.keywords{margin:0; font-size:15px; color:var(--muted); max-width:52ch}
+.quick{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:20px; font-size:15px; font-weight:500}
+
+.curves{margin:0; display:grid; gap:12px}
+.art{width:100%; max-width:100%; aspect-ratio:1/1; display:block; background:var(--blue)}
+.cap{display:grid; gap:10px}
+.cap-text{display:grid; gap:2px; min-height:4.4em}
+.cap-text strong{font-family:var(--display); font-weight:500; font-size:19px; color:var(--blue); line-height:1.25}
+.cap-text span{font-size:14px; color:var(--muted); line-height:1.45}
+.controls{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.dots{display:flex; gap:8px}
+.dots button{width:28px; height:6px; padding:0; background:var(--beige); border:0; cursor:pointer}
+.dots button[aria-current="true"]{background:var(--orange)}
+.dots button:hover{background:var(--blue)}
+.pause{font-size:13px; padding:6px 12px; background:transparent; color:var(--blue); border:1px solid var(--beige)}
+.pause:hover{background:var(--beige-light)}
+
+main .inner{display:grid; gap:56px; padding-block:48px 72px}
+
+/* Key figures */
+.facts{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); border-block:1px solid var(--beige); padding-block:22px}
+.fact{padding-inline:20px; border-left:1px solid var(--beige); display:grid; gap:4px}
+.fact:first-child{border-left:0; padding-left:0}
+.fact b{font-family:var(--display); font-weight:400; font-size:42px; line-height:1; color:var(--blue); font-variant-numeric:tabular-nums}
+.fact span{font-size:14px; color:var(--muted); line-height:1.35}
+
+/* Sections */
+section{display:grid; grid-template-columns:210px minmax(0,1fr); gap:28px; border-top:1px solid var(--beige); padding-top:28px}
+section > h2{font-family:var(--display); font-weight:400; font-size:28px; line-height:1.15; margin:0; color:var(--blue); text-wrap:balance}
+.content{min-width:0}
+.content p{margin:0 0 14px; max-width:66ch}
+.content p:last-child{margin-bottom:0}
+h3{font-size:17px; font-weight:600; margin:0; line-height:1.35; color:var(--blue)}
+.sub{font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:500; margin:30px 0 12px}
+.sub:first-child{margin-top:0}
+
+.lines{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 32px}
+.lines li{padding-block:14px; border-bottom:1px solid var(--beige); display:grid; gap:4px}
+.lines p{margin:0; color:var(--muted); font-size:15.5px}
+
+.pubs{list-style:none; margin:0; padding:0; display:grid; gap:18px}
+.pubs li{display:grid; grid-template-columns:52px minmax(0,1fr); gap:14px}
+.year{font-size:14px; color:var(--muted); padding-top:2px; font-variant-numeric:tabular-nums}
+.pubs .t{font-weight:600; display:block}
+.pubs .m{color:var(--muted); font-size:15px; display:block}
+.pubs .m a{white-space:nowrap}
+.tag{font-size:12px; background:var(--blue-light); color:var(--blue); padding:2px 8px; margin-left:6px; white-space:nowrap; font-weight:500}
+
+.books{list-style:none; margin:0; padding:0; display:grid; gap:0}
+.books li{display:grid; grid-template-columns:72px minmax(0,1fr); gap:16px; padding-block:16px; border-bottom:1px solid var(--beige)}
+.books li:first-child{padding-top:0}
+.books .vol{font-size:13px; font-weight:500; color:var(--white); background:var(--blue); padding:3px 8px; align-self:start; text-align:center; white-space:nowrap}
+.books .t{display:block; font-family:var(--display); font-size:21px; line-height:1.25; color:var(--blue)}
+.books .m{display:block; font-size:15px; color:var(--muted); margin-top:4px}
+.books .d{display:block; font-size:15.5px; margin-top:6px; max-width:62ch}
+.feature{background:var(--blue-light); padding:24px 26px; display:grid; gap:8px; border-left:3px solid var(--orange)}
+.feature .label{margin:0}
+.feature h3{font-family:var(--display); font-weight:400; font-size:24px; line-height:1.2}
+.feature p{margin:0; max-width:64ch}
+
+.timeline{list-style:none; margin:0; padding:0; display:grid; gap:18px}
+.timeline li{display:grid; grid-template-columns:120px minmax(0,1fr); gap:16px}
+.when{font-size:14px; color:var(--muted); padding-top:2px; font-variant-numeric:tabular-nums}
+.what strong{display:block; font-weight:600}
+.what span{color:var(--muted)}
+
+.plain{margin:0; padding-left:1.1em; display:grid; gap:8px; max-width:66ch}
+.plain li::marker{color:var(--orange)}
+.chips{display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0; list-style:none}
+.chips li{font-size:14px; padding:5px 12px; border:1px solid var(--beige); background:var(--beige-light)}
+
+.contact{display:flex; flex-wrap:wrap; align-items:center; gap:12px}
+.mail{font-size:16px; padding:10px 14px; background:var(--beige-light); border:1px solid var(--beige); user-select:all; overflow-wrap:anywhere}
+button{font:500 15px var(--body); cursor:pointer; color:var(--white); background:var(--blue); border:0; padding:11px 16px}
+button:hover{background:#000}
+.status{font-size:14px; color:var(--muted)}
+.ids{display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px; margin:20px 0 0; font-size:15px}
+.ids dt{color:var(--muted)}
+.ids dd{margin:0; overflow-wrap:anywhere}
+
+footer{background:var(--blue); color:var(--white); font-size:14px}
+footer .inner{padding-block:22px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+
+@media (max-width:760px){
+  .brand img{height:64px}
+  .hero .inner{grid-template-columns:1fr; gap:28px; padding-block:36px}
+  .curves{max-width:440px}
+  main .inner{gap:44px; padding-block:36px 56px}
+  section{grid-template-columns:1fr; gap:14px}
+  .lines{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px 0}
+  .fact:nth-child(3){border-left:0; padding-left:0}
+  .timeline li{grid-template-columns:1fr; gap:2px}
+}
+
+/* Tabs */
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--white)}
+.tabs{position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:var(--white); border-bottom:1px solid var(--beige)}
+.tabs ul{list-style:none; margin:0; padding:0; display:flex; gap:2px; overflow-x:auto; scrollbar-width:thin}
+.tabs a{display:block; padding:14px 12px 11px; white-space:nowrap; text-decoration:none; color:var(--muted); font-size:15px; font-weight:500; border-bottom:3px solid transparent}
+.tabs a:hover{color:var(--blue); border-bottom-color:var(--beige)}
+.tabs a[aria-current="page"]{color:var(--blue); border-bottom-color:var(--orange)}
+.tabs li:first-child a{padding-left:0}
+.brand .who{font-family:var(--display); font-size:19px; color:var(--blue); text-decoration:none}
+.brand .who span{display:block; font-family:var(--body); font-size:13px; color:var(--muted)}
+
+.portrait{display:block; width:152px; height:152px; border-radius:50%; object-fit:cover; margin-bottom:24px; border:4px solid var(--white); box-shadow:0 0 0 1px var(--beige)}
+@media (max-width:760px){ .portrait{width:120px; height:120px; margin-bottom:18px} }
+
+/* Page heads for inner tabs */
+.pagehead{background:var(--beige-light)}
+.pagehead .inner{padding-block:40px 36px; display:grid; gap:10px}
+.pagehead h1{font-size:clamp(36px, 5.4vw, 52px)}
+.pagehead p{margin:0; max-width:66ch; color:var(--muted)}
+.note{font-size:15px; color:var(--muted)}
+
+/* At a glance */
+.glance{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:12px}
+.glance a{display:grid; gap:2px; padding:16px 18px; background:var(--beige-light); text-decoration:none; color:var(--black); border-bottom:3px solid transparent; height:100%}
+.glance a:hover{border-bottom-color:var(--orange)}
+.glance b{font-family:var(--display); font-weight:400; font-size:34px; line-height:1.05; color:var(--blue); font-variant-numeric:tabular-nums}
+.glance span{font-size:14px; color:var(--muted)}
+.timeline .what span a{white-space:nowrap}
+
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+:root{padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+.skip{position:absolute; left:-9999px; top:8px; background:var(--blue); color:var(--white); padding:8px 12px; z-index:20}
+.skip:focus{left:16px}
